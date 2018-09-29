@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <!-- ini ambil nama -->
+        <div id="login-box" class="">
+            <h1 style="text-align: center">ROSHAMBO</h1>
+            <form action="">
+                <div class="form-group frmawal">
+                    <label style="font-family: 'Josefin Sans', sans-serif ; font-weight: 1000px; font-size: 20px" for="Guest">Please Enter Your Name</label>
+                    <input id="Guest" type="text" name="nama" class="form-control" placeholder="Enter your name here" required>
+                    <br>
+                </div>
+            </form>
+            <button id="submitBtn" onclick="ambilNama()" type="submit" class="btn button-primary btn-block">Submit</button>
+        </div>
+        <!-- START GAME -->
+        <div class="game hide">
+            <div class="akhir hide" style="text-align: center">
+                <h1 class="result"></h1>
+            </div>
+            <h2 style="text-align: center"> OPPONENT </h2>
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="thumbnail">
+                        <img class="opp" src="giphy.gif" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- INI PLAYER -->
+            <h1 style="text-align: center; padding-bottom: 20px">VS</h1>
+
+            <div class="row playerOut hide">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="thumbnail">
+                        <img class="playerOut1" src="giphy.gif" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row playerIn">
+                <div class="col-md-4">
+                    <div class="thumbnail gambar1">
+                        <img src="batu player.jpg" alt="">
+                    </div>
+                    <div class="buttons">
+                        <button class="pilihanPlayer btn red" type="text" name="batu"> Rock </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail gambar1">
+                        <img src="gunting player.jpg" alt="">
+                    </div>
+                    <div class="buttons">
+                        <button class=" pilihanPlayer btn red" type="text" name="gunting"> Scissor </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail gambar1">
+                        <img src="kertas player.jpg" alt="">
+                    </div>
+                    <div class="buttons">
+                        <button class="pilihanPlayer btn red" type="text" name="kertas"> Paper </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 style="text-align: center" class="player"></h2>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        function ambilNama() {
+            var nama = $('#Guest').val()
+            if (nama !== '') {
+                $('.player').append(' ' + nama.toUpperCase())
+                $('#login-box').addClass('hide')
+                $('.game').removeClass('hide')
+            }
+            else {
+                $('.akhir').removeClass('hide')
+                $('.result').text('you must fill name')
+            }
+        }
+        //   AMBIL PILIHAN
+        var comp = ''
+        var player1 = ''
+        $('.pilihanPlayer').click(function () {
+            player1 = $(this).attr('name')
+            // ngacak comp
+            var random = Math.ceil(Math.random() * 3)
+            if (random == 1) {
+                $('.opp').attr('src', 'batu.jpg')
+                comp = 'batu'
+            }
+            else if (random == 2) {
+                $('.opp').attr('src', 'gunting.jpg')
+                comp = 'gunting'
+            }
+            else {
+                $('.opp').attr('src', 'kertas.jpg')
+                comp = 'kertas'
+            }
+
+            // keluarin output player
+            $('.playerOut1').attr('src', player1 + ' ' + 'player.jpg')
+            $('.playerOut').removeClass('hide')
+            $('.playerIn').addClass('hide')
+            //KELUARIN HASIL
+            if (comp === player1) {
+                $('.akhir').removeClass('hide')
+                $('.result').text('Seri');
+                // selector = prompt('mau main lagi ? Y/N')
+            }
+            else if ((player1 === 'batu') && (comp === 'gunting')) {
+                $('.akhir').removeClass('hide')
+                $('.result').text('kamu menang');
+                //  selector = prompt('mau main lagi ? Y/N')
+            }
+            else if ((player1 === 'gunting') && (comp === 'kertas')) {
+                $('.akhir').removeClass('hide')
+                $('.result').text('kamu menang');
+                // selector = prompt('mau main lagi ? Y/N')
+            }
+            else if ((player1 === 'kertas') && (comp === 'batu')) {
+                $('.akhir').removeClass('hide')
+                $('.result').text('kamu menang');
+                // selector = prompt('mau main lagi ? Y/N')
+            }
+            else if ((player1 === 'batu') && (comp === 'kertas')) {
+                $('.akhir').removeClass('hide')
+                $('.result').text('kamu kalah');
+                // selector = prompt('mau main lagi ? Y/N')
+            }
+            else if ((player1 === 'gunting') && (comp === 'batu')) {
+                $('.akhir').removeClass('hide')
+                $('.result').text('kamu kalah');
+                // selector = prompt('mau main lagi ? Y/N') 
+            }
+            else if ((player1 === 'kertas') && (comp === 'gunting')) {
+                $('.akhir').removeClass('hide')
+                $('.result').text('kamu kalah');
+            }
+            // selector = prompt('mau main lagi ? Y/N') }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+
+.buttons1{
+  position: relative;
+  left: -30%;
+}
+img{
+  height: 200px;
+  width: 200px;
+}
+.frmawal input{
+    background: rgba(34, 33, 33, 0.658);
+    color: white
+}
+.frmawal label{
+    color: rgba(240, 240, 240, 0.884)
+}
+
+#formWlcm{
+    width: 180px;
+    position: relative;
+    left: 69px;
+    padding-bottom: 10px
+}
+#login-box{
+    border-radius: 10px;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    margin: 0 auto;
+    background: rgba(48, 46, 45, 0.719);
+    min-height: 250px;
+    padding: 20px;
+       
+}
+#submitBtn {
+  padding: 12px 60px;
+  outline: none;
+  background-color: #ff8300f2;
+  border: none;
+  border-radius: 43px;
+  box-shadow: 0 4px #000000;
+  position: relative;
+  left: -5%;
+  }
+  
+  #submitBtn:hover{
+    background-color: #ffffff;
+  }
+  
+  #submitBtn:active {
+    background-color: #ff8300f2;
+    box-shadow: 0 5px #000000;
+    transform: translateY(4px);
+  }
+
+.gambar{
+    height:200px ;
+}
+.gambar1{
+    height: 200px;
+}
+.btn {
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 20px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    position: relative;
+    left: 30%;
+  }
+  
+  .btn:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+  }
+  .red {
+    background-color: #e74c3c;
+    box-shadow: 0px 5px 0px 0px #CE3323;
+  }
+  
+  .red:hover {
+    background-color: #FF6656;
+  }  
